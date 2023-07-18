@@ -23,9 +23,9 @@ func main() {
 	client := pb.NewCrudClient(conn)
 
 	// doGetUser(client, "1")
-	// doCreateUser(client, "Lya", "me")
+	doCreateUser(client, "Lya", "me")
 	// doUpdateUser(client, "1", "Peter", "Parker")
-	doDeleteUser(client, "2")
+	// doDeleteUser(client, "2")
 }
 
 func doCreateUser(client pb.CrudClient, firstName, lastName string) {

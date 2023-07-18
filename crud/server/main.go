@@ -14,7 +14,7 @@ import (
 
 const (
 	port  = ":50051"
-	dbURI = "projects/emulator-test-project/instances/test-instance/databases/crud"
+	dbURI = "projects/your-project-id/instances/test-instance/databases/crud"
 )
 
 type crudServer struct {
