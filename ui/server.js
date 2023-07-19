@@ -1,37 +1,37 @@
 const { ApolloServer, gql } = require('apollo-server');
 
 // Sample data store
-const names = [];
+const users = [];
 
 // GraphQL schema
 const typeDefs = gql`
-  type Name {
+  type User {
     id: ID!
     firstName: String!
     lastName: String!
   }
 
   type Query {
-    names: [Name!]!
+    users: [User!]!
   }
 
   type Mutation {
-    addName(firstName: String!, lastName: String!): Name!
+    addUser(firstName: String!, lastName: String!): User!
   }
 `;
 
 // GraphQL resolvers
 const resolvers = {
   Query: {
-    names: () => names,
+    users: () => users,
   },
   Mutation: {
-    addName: (parent, args) => {
+    addUser: (parent, args) => {
       const { firstName, lastName } = args;
-      const id = String(names.length + 1);
-      const newName = { id, firstName, lastName };
-      names.push(newName);
-      return newName;
+      const id = String(users.length + 1);
+      const newUser = { id, firstName, lastName };
+      users.push(newUser);
+      return newUser;
     },
   },
 };

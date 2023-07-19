@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-const ADD_NAME_MUTATION = gql`
-  mutation AddName($firstName: String!, $lastName: String!) {
-    addName(firstName: $firstName, lastName: $lastName) {
+const ADD_USER_MUTATION = gql`
+  mutation AddUser($firstName: String!, $lastName: String!) {
+    addUser(firstName: $firstName, lastName: $lastName) {
       
       id
       firstName
@@ -18,12 +18,12 @@ const AddUser = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const [addName, { loading, error }] = useMutation(ADD_NAME_MUTATION);
+  const [addUser, { loading, error }] = useMutation(ADD_USER_MUTATION);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    addName({ variables: { firstName, lastName } })
+    addUser({ variables: { firstName, lastName } })
       .then(({ data }) => {
         // Handle success response
         console.log('Response:', data);
